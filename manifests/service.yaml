@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: my-diplom
+  name: my-diplom
+  namespace: monitoring
+spec:
+  type: NodePort
+  ports:
+  - name: http
+     port: 80
+     targetPort: http
+     nodePort: 8090
+  selector:
+    app: my-diplom
