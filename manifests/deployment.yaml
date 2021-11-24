@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-diplom-deployment
+  labels:
+    app: my-diplom
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-diplom
+  template:
+    metadata:
+      labels:
+        app: my-diplom
+    spec:
+      containers:
+      - name: my-diplom
+        image: marinakrivitskaya/hellorunner:latest
+        ports:
+        - containerPort: 80
+          name: http
